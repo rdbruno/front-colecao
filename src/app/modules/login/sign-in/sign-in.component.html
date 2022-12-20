@@ -1,0 +1,34 @@
+<div class="screen">
+  <div class="login">
+    <!-- <img src="../../../../assets/imgs/tests/league_of_legends.jpg" class="login_logo"> -->
+
+    <h1 class="login_title">Fazer Login</h1>
+
+    <form [formGroup]="formLogin">
+      <div fxLayout="column">
+        <div>
+          <mat-form-field appearance="outline" class="form_fields">
+            <mat-label class="login_label">E-mail</mat-label>
+            <input matInput type="text" autocomplete="off" formControlName="email">
+            <mat-icon matSuffix>badge</mat-icon>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="outline" class="form_fields">
+            <mat-label class="login_label">Senha</mat-label>
+            <input matInput type="text" autocomplete="off" formControlName="password">
+            <mat-icon matSuffix>lock</mat-icon>
+          </mat-form-field>
+        </div>
+      </div>
+    </form>
+
+    <button mat-raised-button color="primary" type="button" class="login_btn" (click)="onSignIn()">
+      <mat-icon>arrow_forward</mat-icon>
+    </button>
+
+    <p class="login_signup">Não possui uma conta? <a (click)="onSignUpPage()">Registre-se</a></p>
+  </div>
+
+  <div class="wallpaper"></div>
+</div>
