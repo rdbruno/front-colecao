@@ -7,6 +7,9 @@
 # Only exists if Bazel was run
 /bazel-out
 
+# Project files
+/src/environments/**
+
 # dependencies
 /node_modules
 

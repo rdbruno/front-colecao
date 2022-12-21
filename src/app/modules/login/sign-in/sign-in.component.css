@@ -17,6 +17,7 @@
   width: 100%;
   max-width: 500px;
   min-height: 100vh;
+  padding-top: 20px;
 }
 
 .login_logo {
@@ -53,6 +54,7 @@
 }
 
 .login_signup > a {
+  color: blueviolet;
   text-decoration: underline;
   cursor: pointer;
 }

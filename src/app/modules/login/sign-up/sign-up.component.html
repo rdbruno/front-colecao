@@ -1,1 +1,39 @@
-<p>sign-up works!</p>
+<div class="screen">
+  <div class="wallpaper"></div>
+
+  <div class="logup">
+    <h1 class="logup_title">Cadastre-se</h1>
+
+    <form [formGroup]="formSignUp">
+      <div fxLayout="column">
+        <div>
+          <mat-form-field appearance="outline" class="form_fields">
+            <mat-label class="logup_label">Nome Completo</mat-label>
+            <input matInput type="text" autocomplete="off" formControlName="name">
+            <mat-icon matSuffix>badge</mat-icon>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="outline" class="form_fields">
+            <mat-label class="logup_label">E-mail</mat-label>
+            <input matInput type="email" autocomplete="off" formControlName="email">
+            <mat-icon matSuffix>mail</mat-icon>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="outline" class="form_fields">
+            <mat-label class="logup_label">Senha</mat-label>
+            <input matInput type="password" autocomplete="off" formControlName="password">
+            <mat-icon matSuffix>lock</mat-icon>
+          </mat-form-field>
+        </div>
+      </div>
+    </form>
+
+    <button mat-raised-button color="primary" type="button" class="logup_btn" (click)="onSignUp()" [disabled]="!formSignUp.valid">
+      <mat-icon>arrow_forward</mat-icon>
+    </button>
+
+    <p class="logup_signup">Já possui uma conta? <a (click)="onSignInPage()">Acesse</a></p>
+  </div>  
+</div>

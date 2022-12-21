@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.screen {
+  display: flex;
+}
+
+.logup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 500px;
+  min-height: 100vh;
+  padding-top: 20px;
+}
+
+.logup_logo {
+  width: 130px;
+  margin-bottom: 60px;
+}
+
+.logup_title {
+  color: #343434;
+  font-size: 1.5rem;
+  font-family: 'Lexend Deca', 'sans-serif';
+}
+
+.logup_label {
+  font-family: 'Lexend Deca', 'sans-serif';
+}
+
+.logup_btn {
+  width: 60px;
+  border-radius: 10px;
+}
+
+.wallpaper {
+  width: 100%;
+  background-image: url('../../../../assets/imgs/tests/league_of_legends.jpg');
+  background-size: cover;
+  background-position: center;
+  flex: 1;
+}
+
+.logup_signup {
+  margin-top: 15px;
+  font-family: 'Lexend Deca', 'sans-serif';  
+}
+
+.logup_signup > a {
+  color: blueviolet;
+  text-decoration: underline;
+  cursor: pointer;
+}
