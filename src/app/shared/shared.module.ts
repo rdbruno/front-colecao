@@ -12,6 +12,11 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatTableModule } from '@angular/material/table';
 
 import { MenuComponent } from './components/menu/menu.component';
 
@@ -32,6 +37,11 @@ import { MenuComponent } from './components/menu/menu.component';
     MatInputModule,
     MatToolbarModule,
     MatSnackBarModule,
+    MatSidenavModule,
+    MatDividerModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatTableModule,
     RouterModule
   ],
   exports: [
@@ -47,6 +57,11 @@ import { MenuComponent } from './components/menu/menu.component';
     MatInputModule,
     MatToolbarModule,
     MatSnackBarModule,
+    MatSidenavModule,
+    MatDividerModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatTableModule,
     MenuComponent
   ]
 })

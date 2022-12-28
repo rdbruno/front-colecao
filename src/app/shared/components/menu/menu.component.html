@@ -1,1 +1,43 @@
-<p>menu works!</p>
+<mat-toolbar>
+  <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+    <mat-icon *ngIf="!sidenav.opened">menu</mat-icon>
+    <mat-icon *ngIf="sidenav.opened">close</mat-icon>
+  </button>
+  Coleções
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+    <img class="avatar mat-elevation-z8" src="../../../../assets/imgs/tests/sandro.jpg">
+    <h4 class="name">Nome Usuário</h4>
+    <p class="designation">E-mail Usuário</p>
+
+    <mat-divider></mat-divider>
+
+    <button mat-button class="menu_btn">
+      <mat-icon>perm_media</mat-icon>
+      <span>Coleções</span>
+    </button>
+    <button mat-button class="menu_btn">
+      <mat-icon>library_add</mat-icon>
+      <span>Novo</span>
+    </button>
+    <button mat-button class="menu_btn">
+      <mat-icon>account_circle</mat-icon>
+      <span>Perfil</span>
+    </button>
+
+    <mat-divider></mat-divider>
+
+    <button mat-button class="menu_btn">
+      <mat-icon>logout</mat-icon>
+      <span>Sair</span>
+    </button>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <div class="content mat-elevation-z4">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
