@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-
 import { MatSnackBar } from '@angular/material/snack-bar';
+
+import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -19,6 +20,7 @@ export class SignInComponent implements OnInit {
   constructor(
     private _formBuilder: FormBuilder,
     private _router: Router,
+    private _userService: UserService,
     private _snackBar: MatSnackBar
   ) { }
 
@@ -26,7 +28,17 @@ export class SignInComponent implements OnInit {
   }
 
   public onSignIn(): void {
-    this._router.navigate(['menu']);
+    this._userService.login(this.formLogin.value.email, this.formLogin.value.password).subscribe((response) => {
+      if (response.accessToken) {
+        localStorage.setItem('token', response.accessToken);
+        localStorage.setItem('email', response.acesso);
+        this._router.navigate(['menu']);
+      } else {
+        this._snackBar.open('Usuário não encontrado!', 'Ok', { duration: 3000 });
+      }   
+    }, (error) => {
+      this._snackBar.open(error.error.message, 'Ok', { duration: 3000 });
+    });    
   }
 
   public onSignUpPage(): void {

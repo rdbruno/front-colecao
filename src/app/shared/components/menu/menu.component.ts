@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { MatSidenav } from '@angular/material/sidenav';
 import { delay } from 'rxjs/operators';
@@ -14,7 +15,8 @@ export class MenuComponent implements OnInit, AfterViewInit {
   public sidenav!: MatSidenav;
 
   constructor(
-    private _observer: BreakpointObserver
+    private _observer: BreakpointObserver,
+    private _router: Router
   ) { }  
 
   ngOnInit(): void {
@@ -33,6 +35,11 @@ export class MenuComponent implements OnInit, AfterViewInit {
           this.sidenav.open();
         }
       });
+  }
+
+  onSignOut(): void {
+    localStorage.clear();
+    this._router.navigate(['login']);
   }
 
 }
