@@ -4,6 +4,9 @@ import { BreakpointObserver } from '@angular/cdk/layout';
 import { MatSidenav } from '@angular/material/sidenav';
 import { delay } from 'rxjs/operators';
 
+import { Usuario } from '../../models/usuario.model';
+import { UserService } from '../../services/user.service';
+
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
@@ -13,13 +16,16 @@ export class MenuComponent implements OnInit, AfterViewInit {
 
   @ViewChild(MatSidenav)
   public sidenav!: MatSidenav;
+  public user: Usuario;
 
   constructor(
     private _observer: BreakpointObserver,
-    private _router: Router
+    private _router: Router,
+    private _userService: UserService
   ) { }  
 
   ngOnInit(): void {
+    this.onLoadUserData();
   }
 
   ngAfterViewInit(): void {
@@ -35,6 +41,14 @@ export class MenuComponent implements OnInit, AfterViewInit {
           this.sidenav.open();
         }
       });
+  }
+
+  onLoadUserData(): void {
+    this._userService.findByEmail(localStorage.getItem('email') as string).subscribe((response) => {
+      this.user = response;
+    }, (err) => {
+      console.log(err);
+    });
   }
 
   onSignOut(): void {

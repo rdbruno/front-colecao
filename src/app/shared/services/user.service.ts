@@ -26,8 +26,12 @@ export class UserService {
     return this._http.post(`${this._globalService.getConfiguracao().urlApi}/usuarios`, user);
   }
 
-  public loadProfile(id: number): Observable<any> {
+  public findById(id: number): Observable<any> {
     return this._http.get(`${this._globalService.getConfiguracao().urlApi}/usuarios/${id}`);
+  }
+
+  public findByEmail(email: string): Observable<any> {
+    return this._http.get(`${this._globalService.getConfiguracao().urlApi}/usuarios/email?email=${email}`);
   }
 
 }

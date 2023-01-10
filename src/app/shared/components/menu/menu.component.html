@@ -9,8 +9,8 @@
 <mat-sidenav-container>
   <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
     <img class="avatar mat-elevation-z8" src="../../../../assets/imgs/tests/sandro.jpg">
-    <h4 class="name">Nome Usuário</h4>
-    <p class="designation">E-mail Usuário</p>
+    <h4 class="name">{{ user?.nome }}</h4>
+    <p class="designation">{{ user?.email }}</p>
 
     <mat-divider></mat-divider>
 

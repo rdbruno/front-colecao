@@ -3,9 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { SharedModule } from './shared/shared.module';
+import { AuthInterceptor } from './shared/interceptors/auth-interceptor';
 import { UserService } from './shared/services/user.service';
 
 @NgModule({
@@ -20,7 +21,8 @@ import { UserService } from './shared/services/user.service';
     SharedModule
   ],
   providers: [
-    UserService
+    UserService,
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })
