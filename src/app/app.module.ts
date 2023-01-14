@@ -8,6 +8,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
 import { AuthInterceptor } from './shared/interceptors/auth-interceptor';
 import { UserService } from './shared/services/user.service';
+import { CollectionService } from './shared/services/collection.service';
+import { FilesService } from './shared/services/files.service';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import { UserService } from './shared/services/user.service';
   ],
   providers: [
     UserService,
+    CollectionService,
+    FilesService,
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]

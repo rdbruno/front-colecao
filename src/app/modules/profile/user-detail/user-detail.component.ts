@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatDialog } from '@angular/material/dialog';
+
+import { UserDialogComponent, UserDialogModel } from '../user-dialog/user-dialog.component';
 
 import { Usuario } from 'src/app/shared/models/usuario.model';
 import { UserService } from 'src/app/shared/services/user.service';
@@ -11,11 +14,12 @@ import { UserService } from 'src/app/shared/services/user.service';
 })
 export class UserDetailComponent implements OnInit {
 
-  public user: Usuario;
+  public user: Usuario = new Usuario();
 
   constructor(
     private _userService: UserService,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    private _dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -23,13 +27,25 @@ export class UserDetailComponent implements OnInit {
   }
 
   public onLoadProfile(): void {
-    let email = localStorage.getItem('email') as string;
+    let id = localStorage.getItem('id') as unknown as number;
 
-    this._userService.findByEmail(email).subscribe((response) => {
+    this._userService.findById(id).subscribe((response) => {
       this.user = response;
     }, (error) => {
       console.log(error);
       //this._snackBar.open(error.error.message, 'Ok', { duration: 3000 });
+    });
+  }
+
+  public onEditProfile(): void {    
+    const dialogData = new UserDialogModel('Dados do Usuário', this.user);
+    const dialogRef  = this._dialog.open(UserDialogComponent, { maxWidth: '400px', data: dialogData });
+
+    dialogRef.afterClosed().subscribe(dialogResult => {
+      if (dialogResult) {
+        this.onLoadProfile();
+        this._snackBar.open('Dados atualizados com Sucesso!', 'Ok', { duration: 3000 });
+      }
     });
   }
 

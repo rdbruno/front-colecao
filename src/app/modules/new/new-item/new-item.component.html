@@ -1,0 +1,98 @@
+<mat-card>
+  <div fxLayout="row" fxLayout.lt-md="column" fxFlexFill>
+    <div fxFlex></div>
+    <div fxFlex="40%" fxFlex.lt-md="100%" fxFlex.lt-sm="100%">
+      <img [src]="imgUrl" height="200" *ngIf="imgUrl">
+      <mat-form-field class="field_image">
+        <div>
+          <mat-toolbar>
+            <input matInput [(ngModel)]="fileAttr" readonly name="name">
+            <button mat-flat-button color="primary"> <mat-icon matSuffix>attachment</mat-icon> Selecionar</button>
+          </mat-toolbar>
+
+          <input #file type="file" id="uploadFile" name="uploadFile" multiple="multiple" accept="image/*" (change)="preview(file.files, $event)">
+        </div>
+      </mat-form-field>
+    </div>
+    <div fxFlex></div>
+  </div>
+  
+  <form [formGroup]="formItem">
+    <div fxLayout="row" fxLayout.lt-md="column" fxFlexFill>
+      <div fxFlex="20%" fxFlex.lt-md="100%" fxFlex.lt-sm="100%">
+        <mat-form-field appearance="fill" class="form-fields">
+          <mat-label>Selecione uma Categoria</mat-label>
+          <mat-select disableRipple formControlName="categoria">
+            <mat-option *ngFor="let data of listCategory" [value]="data">{{ data }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div fxFlex="5%"></div>
+
+      <div fxFlex="75%" fxFlex.lt-md="100%" fxFlex.lt-sm="100%">
+        <mat-form-field appearance="fill" class="form-fields">
+          <mat-label>Nome</mat-label>
+          <input matInput type="text" autocomplete="off" formControlName="nome" maxlength="200">
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div fxLayout="row" fxLayout.lt-md="column" fxFlexFill>
+      <mat-form-field class="form-fields" appearance="fill">
+        <mat-label>Descrição</mat-label>
+        <textarea matInput #descricao formControlName="descricao" maxlength="250"></textarea>
+        <mat-hint align="end">{{ descricao.value.length }} / 250</mat-hint>
+      </mat-form-field>
+    </div>
+
+    <div fxLayout="row" fxLayout.lt-md="column" fxFlexFill>
+      <div fxFlex="30%" fxFlex.lt-md="100%" fxFlex.lt-sm="100%">
+        <mat-form-field appearance="fill" class="form-fields">
+          <mat-label>Marca</mat-label>
+          <input matInput type="text" autocomplete="off" formControlName="marca" maxlength="200">
+        </mat-form-field>
+      </div>
+
+      <div fxFlex="5%"></div>
+
+      <div fxFlex="30%" fxFlex.lt-md="100%" fxFlex.lt-sm="100%">
+        <mat-form-field appearance="fill" class="form-fields">
+          <mat-label>Material</mat-label>
+          <input matInput type="text" autocomplete="off" formControlName="material" maxlength="20">
+        </mat-form-field>
+      </div>
+
+      <div fxFlex="5%"></div>
+
+      <div fxFlex="30%" fxFlex.lt-md="100%" fxFlex.lt-sm="100%">
+        <mat-form-field appearance="fill" class="form-fields">
+          <mat-label>Modelo</mat-label>
+          <input matInput type="text" autocomplete="off" formControlName="modelo" maxlength="150">
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div fxLayout="row" fxLayout.lt-md="column" fxFlexFill>
+      <div fxFlex="30%" fxFlex.lt-md="100%" fxFlex.lt-sm="100%">
+        <mat-form-field appearance="fill" class="form-fields">
+          <mat-label>País</mat-label>
+          <input matInput type="text" autocomplete="off" formControlName="pais" maxlength="200">
+        </mat-form-field>
+      </div>
+
+      <div fxFlex="5%"></div>
+
+      <div fxFlex="20%" fxFlex.lt-md="100%" fxFlex.lt-sm="100%">
+        <mat-form-field appearance="fill" class="form-fields">
+          <mat-label>Ano</mat-label>
+          <input matInput type="text" autocomplete="off" formControlName="ano" maxlength="4">
+        </mat-form-field>
+      </div>
+    </div>
+  </form>
+
+  <mat-card-actions>
+    <button mat-raised-button color="primary" [disabled]="!formItem.valid" (click)="onSaveNewItem()"> <mat-icon matSuffix>save</mat-icon> Salvar</button>
+  </mat-card-actions>
+</mat-card>

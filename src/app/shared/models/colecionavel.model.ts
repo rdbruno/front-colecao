@@ -11,4 +11,5 @@ export class Colecionavel {
   public material: string;
   public data: string;
   public dataCadastro: string;
+  public usuario: number;
 }

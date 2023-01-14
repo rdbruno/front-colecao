@@ -5,10 +5,12 @@ import { SharedModule } from "src/app/shared/shared.module";
 import { ProfileRoutingModule } from "./profile-routing.module";
 
 import { UserDetailComponent } from './user-detail/user-detail.component';
+import { UserDialogComponent } from './user-dialog/user-dialog.component';
 
 @NgModule({
   declarations: [
-    UserDetailComponent
+    UserDetailComponent,
+    UserDialogComponent
   ],
   imports: [
     CommonModule,

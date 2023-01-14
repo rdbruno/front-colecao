@@ -31,7 +31,7 @@ export class SignInComponent implements OnInit {
     this._userService.login(this.formLogin.value.email, this.formLogin.value.password).subscribe((response) => {
       if (response.accessToken) {
         localStorage.setItem('token', response.accessToken);
-        localStorage.setItem('email', response.acesso);
+        localStorage.setItem('id', response.id);
         this._router.navigate(['menu']);
       } else {
         this._snackBar.open('Usuário não encontrado!', 'Ok', { duration: 3000 });

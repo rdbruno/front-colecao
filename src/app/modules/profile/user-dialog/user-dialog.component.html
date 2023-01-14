@@ -1,0 +1,23 @@
+<p>user-dialog works!</p>
+<h2 mat-dialog-title class="profile_label">{{ title }}</h2>
+<div mat-dialog-content>
+
+  <form [formGroup]="formUser">
+    <mat-form-field appearance="outline" class="form-fields">
+      <mat-label class="profile_label">Nome</mat-label>
+      <input matInput type="text" autocomplete="off" formControlName="nome">
+      <mat-icon matSuffix>person</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="form-fields">
+      <mat-label class="profile_label">E-mail</mat-label>
+      <input matInput type="email" autocomplete="off" formControlName="email">
+      <mat-icon matSuffix>mail</mat-icon>
+    </mat-form-field>
+  </form>
+
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button color="primary" class="profile_label" (click)="onEditUser()">Salvar</button>
+  <button mat-raised-button color="warn" class="profile_label" (click)="onDismiss()">Cancelar</button>  
+</div>

@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300;400;500;600;700&display=swap');
+
+.form-fields {
+  width: 100%;
+}
+
+mat-card-actions {
+  text-align: center;
+}
+
+mat-label, button {
+  font-family: 'Lexend Deca', 'sans-serif';
+}

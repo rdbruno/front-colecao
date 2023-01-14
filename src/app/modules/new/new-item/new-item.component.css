@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300;400;500;600;700&display=swap');
+
+.field_image {
+  margin: 40px 0;
+}
+.mat-toolbar-single-row {
+  height: auto !important;
+  background: transparent;
+}
+.mat-toolbar-single-row button {
+  width: 200px;
+}
+.mat-form-field {
+  width: 100%;
+}
+#uploadFile {
+  top: 0px;
+  left: 0px;
+  width: 100%;    
+  z-index: 9;
+  opacity: 0;
+  height: 100%;
+  cursor: pointer;
+  position: absolute;
+}
+
+
+.form-fields {
+  width: 100%;
+}
+
+mat-card-actions {
+  text-align: center;
+}
+
+mat-label, button {
+  font-family: 'Lexend Deca', 'sans-serif';
+}

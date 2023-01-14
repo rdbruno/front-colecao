@@ -1,0 +1,83 @@
+<mat-card class="example-card">
+  <mat-card-content>
+    <form [formGroup]="formItem">
+      <div fxLayout="row" fxLayout.lt-md="column" fxFlexFill>
+        <div fxFlex="20%" fxFlex.lt-md="100%" fxFlex.lt-sm="100%">
+          <mat-form-field appearance="fill" class="form-fields">
+            <mat-label>Selecione uma Categoria</mat-label>
+            <mat-select disableRipple formControlName="categoria">
+              <mat-option *ngFor="let data of listCategory" [value]="data">{{ data }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+  
+        <div fxFlex="5%"></div>
+  
+        <div fxFlex="75%" fxFlex.lt-md="100%" fxFlex.lt-sm="100%">
+          <mat-form-field appearance="fill" class="form-fields">
+            <mat-label>Nome</mat-label>
+            <input matInput type="text" autocomplete="off" formControlName="nome" maxlength="200" [readonly]="!edit">
+          </mat-form-field>
+        </div>
+      </div>
+  
+      <div fxLayout="row" fxLayout.lt-md="column" fxFlexFill>
+        <mat-form-field class="form-fields" appearance="fill">
+          <mat-label>Descrição</mat-label>
+          <textarea matInput #descricao formControlName="descricao" maxlength="250" [readonly]="!edit"></textarea>
+          <mat-hint align="end">{{ descricao.value.length }} / 250</mat-hint>
+        </mat-form-field>
+      </div>
+  
+      <div fxLayout="row" fxLayout.lt-md="column" fxFlexFill>
+        <div fxFlex="30%" fxFlex.lt-md="100%" fxFlex.lt-sm="100%">
+          <mat-form-field appearance="fill" class="form-fields">
+            <mat-label>Marca</mat-label>
+            <input matInput type="text" autocomplete="off" formControlName="marca" maxlength="200" [readonly]="!edit">
+          </mat-form-field>
+        </div>
+  
+        <div fxFlex="5%"></div>
+  
+        <div fxFlex="30%" fxFlex.lt-md="100%" fxFlex.lt-sm="100%">
+          <mat-form-field appearance="fill" class="form-fields">
+            <mat-label>Material</mat-label>
+            <input matInput type="text" autocomplete="off" formControlName="material" maxlength="20" [readonly]="!edit">
+          </mat-form-field>
+        </div>
+  
+        <div fxFlex="5%"></div>
+  
+        <div fxFlex="30%" fxFlex.lt-md="100%" fxFlex.lt-sm="100%">
+          <mat-form-field appearance="fill" class="form-fields">
+            <mat-label>Modelo</mat-label>
+            <input matInput type="text" autocomplete="off" formControlName="modelo" maxlength="150" [readonly]="!edit">
+          </mat-form-field>
+        </div>
+      </div>
+  
+      <div fxLayout="row" fxLayout.lt-md="column" fxFlexFill>
+        <div fxFlex="30%" fxFlex.lt-md="100%" fxFlex.lt-sm="100%">
+          <mat-form-field appearance="fill" class="form-fields">
+            <mat-label>País</mat-label>
+            <input matInput type="text" autocomplete="off" formControlName="pais" maxlength="200" [readonly]="!edit">
+          </mat-form-field>
+        </div>
+  
+        <div fxFlex="5%"></div>
+  
+        <div fxFlex="20%" fxFlex.lt-md="100%" fxFlex.lt-sm="100%">
+          <mat-form-field appearance="fill" class="form-fields">
+            <mat-label>Ano</mat-label>
+            <input matInput type="text" autocomplete="off" formControlName="ano" maxlength="4" [readonly]="!edit">
+          </mat-form-field>
+        </div>
+      </div>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button *ngIf="!edit" mat-raised-button color="primary" (click)="edit = !edit"> <mat-icon matSuffix>edit_note</mat-icon> Alterar</button>
+    <button *ngIf="edit"  mat-raised-button color="primary"> <mat-icon matSuffix>save</mat-icon> Salvar</button>
+    <button *ngIf="edit"  mat-raised-button color="warn" (click)="edit = !edit"> <mat-icon matSuffix>cancel_presentation</mat-icon> Cancelar</button>
+  </mat-card-actions>
+</mat-card>

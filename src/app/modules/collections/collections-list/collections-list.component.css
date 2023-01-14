@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300;400;500;600;700&display=swap');
+
+mat-label, button {
+  font-family: 'Lexend Deca', 'sans-serif';
+}
+
+.form-fields {
+  width: 100%;
+}
+
+.btn_search {
+  width: 120px;
+}
+
+.example-container {
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+}
+
+.mat-table {
+  overflow: auto;
+}
+
+.mat-cell a {
+  cursor: pointer;
+}
+
+.mobile-label {
+  display: none;
+}
+
+.open_icon {
+  color: darkslateblue;
+}
+
+.delete_icon {
+  color: red;
+}
+
+.activate_icon {
+  color: green;
+}
+
+@media(max-width: 600px) {
+  .mobile-label {
+    width: 80px;
+    display: inline-block;
+    font-weight: bold;
+  }
+
+  .mat-header-row {
+    display: none;
+  }
+
+  .mat-row {
+    flex-direction: column;
+    align-items: start;
+    padding: 8px 24px;
+  }
+}

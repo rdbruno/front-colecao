@@ -16,7 +16,7 @@ export class MenuComponent implements OnInit, AfterViewInit {
 
   @ViewChild(MatSidenav)
   public sidenav!: MatSidenav;
-  public user: Usuario;
+  public user: Usuario = new Usuario();
 
   constructor(
     private _observer: BreakpointObserver,
@@ -44,7 +44,9 @@ export class MenuComponent implements OnInit, AfterViewInit {
   }
 
   onLoadUserData(): void {
-    this._userService.findByEmail(localStorage.getItem('email') as string).subscribe((response) => {
+    const id = localStorage.getItem('id') as unknown as number;
+
+    this._userService.findById(id).subscribe((response) => {
       this.user = response;
     }, (err) => {
       console.log(err);
